@@ -30,8 +30,11 @@ jobs:
           # curl -f -o ./dist.tar.gz https://releases.mattermost.com/mattermost-webapp/commit/${WEBAPP_GIT_COMMIT}/mattermost-webapp.tar.gz && mkdir ./dist && tar -xvf ./dist.tar.gz -C ./dist --strip-components=1 || make node_modules test build
           echo "Installing node dependencies"
           make node_modules
-          echo "Running webapp tests"
-          make test
+          echo "Inside Redux"
+          cd node_modules/mattermost-redux
+          echo "Redux dep"
+          npm build
+          ls
       
           # npm install && cd node_modules/mattermost-redux && npm run build && cd ../.. && make build
 
